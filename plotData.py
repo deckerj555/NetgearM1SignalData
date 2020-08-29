@@ -1,44 +1,27 @@
 #py -m pip install pandas
 
 import matplotlib.pyplot as plt
-#import json
-#import csv
 import pandas
 import numpy
 
-#pathToFile = 'logfile-20200815 10-59-29.txt' ; comments = 'test file with real datetime objects'
-#pathToFile = 'logFile-logfile-20200806 12-06-08.csv'; comments = 'baseline 1/3, antenna on electrical panel and paint can (pic on phone)'
-#pathToFile = 'logFile-logfile-20200807 13-52-13.csv'; comments = 'baseline 3/3'
-#pathToFile = 'logfile-20200808 10-01-20.txt' # eh?
-#pathToFile = 'logfile-20200808 22-32-43.txt'; comments = '1/4 removed external antennae; internal antennae only'
-#pathToFile = 'logfile-20200809 10-33-08.txt'; comments = '2/4 of no external antennae'
-#pathToFile = 'logfile-20200809 23-08-07.txt'; comments = '3/4 no external anteannae PM -> AM'
-#pathToFile = 'logfile-20200810 11-32-53.txt'; comments = '4/4 no external antennae AM -> PM'
-#pathToFile = 'logfile-20200811 19-30-56.txt'; comments = '1/? baseline; antenna on panel and paint can pic (8/6)'
-#pathToFile = 'logfile-20200812 08-11-24.txt'; comments = '2/? baseline; AM -> PM'
-#pathToFile = 'logfile-20200812 20-36-01.txt'; comments = '3/? baseline PM - > AM'
-#pathToFile = 'logfile-20200813 08-59-11.txt'; comments = '4/? baseline AM -> PM'
-#pathToFile = 'logfile-20200813 22-50-28.txt'; comments = '5/5 baseline PM -> AM'
-#pathToFile = 'logfile-20200814 18-40-18.txt'; comments = '1/1 antennae on tablesaw and paint can; before real datetimes'
 
-pathToSaw = [None]*3; commentsSaw = [None]*3
-pathToNone = [None]*6; commentsNone = [None]*6
-pathToPanel = [None]*5; commentsPanel = [None]*5
+pathToSaw = ['logfile-20200815 11-02-38.txt']; commentsSaw = ['1/4 antennae on tablesaw and paint can; first with real datetimes']
+pathToSaw.append('logfile-20200816 10-11-21.txt'); commentsSaw.append('2/4 antennae on tablesaw and paint can; first with real datetimes')
+pathToSaw.append('logfile-20200817 07-43-27.txt'); commentsSaw.append('3/4 antennae on tablesaw and paint can; first with real datetimes')
+pathToSaw.append('logfile-20200829 10-59-30.txt'); commentsSaw.append('4/4 after a couple weeks, back to the tablesaw and paint can')
 
-pathToSaw[0] = 'logfile-20200815 11-02-38.txt'; commentsSaw[0] = '1/3 antennae on tablesaw and paint can; first with real datetimes'
-pathToSaw[1] = 'logfile-20200816 10-11-21.txt'; commentsSaw[1] = '2/3 antennae on tablesaw and paint can; first with real datetimes'
-pathToSaw[2] = 'logfile-20200817 07-43-27.txt'; commentsSaw[2] = '3/3 antennae on tablesaw and paint can; first with real datetimes'
-pathToNone[0] = 'logfile-20200817 19-26-06.txt'; commentsNone[0] = '1/6 no external antennae'
-pathToNone[1] = 'logfile-20200818 12-45-21.txt'; commentsNone[1] = '2/6 no external antennae'
-pathToNone[2] = 'logfile-20200819 11-59-43.txt'; commentsNone[2] = '3/6 no external antennae'
-pathToNone[3] = 'logfile-20200819 22-27-55.txt'; commentsNone[3] = '4/6 no external antennae'
-pathToNone[4] = 'logfile-20200821 09-26-18.txt'; commentsNone[4] = '5/6 no external antennae'
-pathToNone[5] = 'logfile-20200821 21-21-26.txt'; commentsNone[5] = '6/6 no external antennae'
-pathToPanel[0] = 'logfile-20200822 10-06-56.txt'; commentsPanel[0] = '1/5 antennae on paint can & electrical panel'
-pathToPanel[1] = 'logfile-20200822 23-54-03.txt'; commentsPanel[1] = '2/5 antennae on paint can & electrical panel'
-pathToPanel[2] = 'logfile-20200823 11-54-14.txt'; commentsPanel[2] = '3/5 antennae on paint can & electrical panel'
-pathToPanel[3] = 'logfile-20200824 00-10-26.txt'; commentsPanel[3] = '4/5 antennae on paint can & electrical panel'
-pathToPanel[4] = 'logfile-20200824 22-59-57.txt'; commentsPanel[4] = '5/5 antennae on paint can & electrical panel'
+pathToNone = ['logfile-20200817 19-26-06.txt']; commentsNone = ['1/6 no external antennae']
+pathToNone.append('logfile-20200818 12-45-21.txt'); commentsNone.append('2/6 no external antennae')
+pathToNone.append('logfile-20200819 11-59-43.txt'); commentsNone.append('3/6 no external antennae')
+pathToNone.append('logfile-20200819 22-27-55.txt'); commentsNone.append('4/6 no external antennae')
+pathToNone.append('logfile-20200821 09-26-18.txt'); commentsNone.append('5/6 no external antennae')
+pathToNone.append('logfile-20200821 21-21-26.txt'); commentsNone.append('6/6 no external antennae')
+
+pathToPanel = ['logfile-20200822 10-06-56.txt']; commentsPanel = ['1/5 antennae on paint can & electrical panel']
+pathToPanel.append('logfile-20200822 23-54-03.txt'); commentsPanel.append('2/5 antennae on paint can & electrical panel')
+pathToPanel.append('logfile-20200823 11-54-14.txt'); commentsPanel.append('3/5 antennae on paint can & electrical panel')
+pathToPanel.append('logfile-20200824 00-10-26.txt'); commentsPanel.append('4/5 antennae on paint can & electrical panel')
+pathToPanel.append('logfile-20200824 22-59-57.txt'); commentsPanel.append('5/5 antennae on paint can & electrical panel')
 
 #gotta manually change the pathToNone, pathToPanel, pathToSaw
 for pathToFile in pathToPanel:
